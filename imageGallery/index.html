@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem;
+      }
+      .filters {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        background: #203961;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+        border-radius: 4px;
+      }
+      .images {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .images .image {
+        width: 200px;
+        border-radius: 8px;
+        align-self: center;
+        height: 300px;
+      }
+      .images .image img {
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="filters">
+        <button onclick="filter('captain-america')">Captain America</button>
+        <button onclick="filter('doctor-strange')">Doctor Strange</button>
+        <button onclick="filter('iron-man')">Iron Man</button>
+        <button onclick="filter('spider-man')">Spider Man</button>
+      </div>
+      <div class="images">
+        <div class="image" data-name="spider-man">
+          <img
+            width="200px"
+            src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3BpZGVybWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+
+        <div class="image" data-name="captain-america">
+          <img
+            src="https://images.unsplash.com/photo-1626278664285-f796b9ee7806?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FwdGFpbiUyMGFtZXJpY2F8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="spider-man">
+          <img
+            width="200px"
+            src="https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BpZGVybWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="iron-man">
+          <img
+            src="https://images.unsplash.com/photo-1636840438199-9125cd03c3b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8SXJvbiUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+      
+        <div class="image" data-name="spider-man">
+          <img
+            width="200px"
+            src="https://images.unsplash.com/photo-1635805739892-ab7b431400f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3BpZGVybWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+
+        <div class="image" data-name="captain-america">
+          <img
+            src="https://static.toiimg.com/thumb/msid-92954243,width-400,resizemode-4/92954243.jpg"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="captain-america">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9aMIr5rWrMnpaZxMPtfJuAyMwev3jqC0C5w&usqp=CAU"
+            alt=""
+          />
+        </div>
+
+        <div class="image" data-name="iron-man">
+          <img
+            src="https://images.unsplash.com/photo-1629003493933-662e48475e89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8SXJvbiUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+
+        <div class="image" data-name="doctor-strange">
+          <img
+            src="https://i.annihil.us/u/prod/marvel/i/mg/9/f0/57fe4ef408a29/standard_incredible.jpg"
+            alt=""
+          />
+        </div>
+
+        <div class="image" data-name="iron-man">
+          <img
+            src="https://images.unsplash.com/photo-1584444527303-9d66a8948673?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fElyb24lMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="doctor-strange">
+          <img
+            src="https://gumlet.assettype.com/film-companion%2Fimport%2Fwp-content%2Fuploads%2F2022%2F05%2FFC-Dr.-strange-Lead-Image-min-1.jpg?auto=format%2Ccompress&fit=max&w=1200"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="doctor-strange">
+          <img
+            src="https://bbts1.azureedge.net/images/p/full/2022/02/821e9a47-7a4f-492e-af21-ebf3470d3e60.jpg"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="spider-man">
+          <img
+            width="200px"
+            src="https://images.unsplash.com/photo-1651026578642-3b74b2ce1493?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzZ8fHNwaWRlcm1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="iron-man">
+          <img
+            src="https://images.unsplash.com/photo-1635863138275-d9b33299680b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8SXJvbiUyMG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="captain-america">
+          <img
+            src="https://cdn.britannica.com/30/182830-050-96F2ED76/Chris-Evans-title-character-Joe-Johnston-Captain.jpg"
+            alt=""
+          />
+        </div>
+        <div class="image" data-name="doctor-strange">
+          <img
+            src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2016%2F10%2Fdr-strange.jpg&q=60"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const images = document.querySelector(".images");
+      const characterNames = document.querySelectorAll("[data-name]");
+
+      const filter = (name) => {
+        console.log(name);
+
+        characterNames.forEach((characterName) => {
+          if (name == characterName.dataset.name) {
+            characterName.style.display = "block";
+          } else {
+            characterName.style.display = "none";
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Carousel</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        box-sizing: border-box;
+        font-family: "Poppins";
+      }
+
+      .container {
+        width: 85%;
+
+        margin: 2rem auto;
+        position: relative;
+        max-width: 920px;
+        /* overflow: hidden; */
+      }
+      .slide {
+        color: white;
+        border-radius: 8px;
+        padding: 2.5rem;
+        background: #176e8f;
+        position: relative;
+        transform: scale(0.9);
+      }
+      .slide,
+      .content {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        /* gap: 0.5rem; */
+        justify-content: center;
+        align-items: center;
+      }
+      .content {
+        padding: 0 0.8rem 0 0.8rem;
+      }
+      .slides {
+        margin-top: 2rem;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      img {
+        border-radius: 10%;
+        width: 60px !important;
+      }
+      .slide .content > p:nth-child(2) {
+        font-size: 13px;
+      }
+      .content > p {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        padding: 0.5rem 1rem 1rem 1rem;
+      }
+      .button {
+        display: none;
+
+        color: #176e8f;
+        background-color: white;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 20px;
+
+        border: none;
+        border-radius: 4px;
+        padding: 0.6rem 2rem;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      }
+      .details p:nth-child(1) {
+        margin-top: 0.3rem;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .details p:nth-child(2) {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15px;
+        color: #dedddd;
+      }
+
+      .controls {
+        position: absolute;
+        position: absolute;
+        /* top: 50%; */
+        font-size: 4rem;
+        color: #176e8f;
+        bottom: -5rem;
+        left: 48%;
+        display: flex;
+        gap: 1rem;
+      }
+      .owl-nav {
+        position: relative;
+        font-size: 3rem;
+        gap: 2rem;
+        display: flex;
+        /* margin: 2rem; */
+        flex-direction: row;
+        left: 50%;
+        color: #176e8f;
+      }
+      .owl-item.active.center {
+        transform: scale(1.1);
+      }
+      .owl-item.active.center button {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Carousel</h1>
+      <div class="carousel">
+        <div class="owl-carousel slides">
+          <div class="slide">
+            <div class="image">
+              <img
+                width="60px"
+                src="./images/unsplash_jFAG_ixCrsM.png"
+                alt=""
+              />
+            </div>
+            <div class="content">
+              <div class="details">
+                <p class="name">Kyle Merwin</p>
+                <p class="designat">Co-Owner</p>
+              </div>
+              <p>
+                Aut nihil mollitia deserunt quia sed rem. Quibusdam amet veniam
+                rerum id rerum beatae. Quas rerum iste necessitatibus. At
+                voluptates ad magnam blanditiis excepturi expedita aut. Aut
+                repellat inventore qui minima illum est.
+              </p>
+            </div>
+            <button class="button">Know More</button>
+          </div>
+          <div data-active class="slide">
+            <div class="image">
+              <img
+                width="60px"
+                src="./images/unsplash_tyv3bhizAx8.png"
+                alt=""
+              />
+            </div>
+            <div class="content">
+              <div class="details">
+                <p class="name">Jonas Merwin</p>
+                <p class="designat">Co-Owner</p>
+              </div>
+              <p>
+                Aut nihil mollitia deserunt quia sed rem. Quibusdam amet veniam
+                rerum id rerum beatae. Quas rerum iste necessitatibus. At
+                voluptates ad magnam blanditiis excepturi expedita aut. Aut
+                repellat inventore qui minima illum est.
+              </p>
+            </div>
+            <button class="button">Know More</button>
+          </div>
+          <div class="slide">
+            <div class="image">
+              <img
+                width="60px"
+                src="./images/unsplash_plsF6obTgms.png"
+                alt=""
+              />
+            </div>
+            <div class="content">
+              <div class="details">
+                <p class="name">John Merwin</p>
+                <p class="designat">Co-Owner</p>
+              </div>
+              <p>
+                Aut nihil mollitia deserunt quia sed rem. Quibusdam amet veniam
+                rerum id rerum beatae. Quas rerum iste necessitatibus. At
+                voluptates ad magnam blanditiis excepturi expedita aut. Aut
+                repellat inventore qui minima illum est.
+              </p>
+            </div>
+            <button class="button">Know More</button>
+          </div>
+          <div class="slide">
+            <div class="image">
+              <img
+                width="60px"
+                src="./images/unsplash_plsF6obTgms.png"
+                alt=""
+              />
+            </div>
+            <div class="content">
+              <div class="details">
+                <p class="name">John Merwin</p>
+                <p class="designat">Co-Owner</p>
+              </div>
+              <p>
+                Aut nihil mollitia deserunt quia sed rem. Quibusdam amet veniam
+                rerum id rerum beatae. Quas rerum iste necessitatibus. At
+                voluptates ad magnam blanditiis excepturi expedita aut. Aut
+                repellat inventore qui minima illum est.
+              </p>
+            </div>
+            <button class="button">Know More</button>
+          </div>
+          <div class="slide">
+            <div class="image">
+              <img
+                width="60px"
+                src="./images/unsplash_jFAG_ixCrsM.png"
+                alt=""
+              />
+            </div>
+            <div class="content">
+              <div class="details">
+                <p class="name">Kyle Merwin</p>
+                <p class="designat">Co-Owner</p>
+              </div>
+              <p>
+                Aut nihil mollitia deserunt quia sed rem. Quibusdam amet veniam
+                rerum id rerum beatae. Quas rerum iste necessitatibus. At
+                voluptates ad magnam blanditiis excepturi expedita aut. Aut
+                repellat inventore qui minima illum est.
+              </p>
+            </div>
+            <button class="button">Know More</button>
+          </div>
+          <div data-active class="slide">
+            <div class="image">
+              <img
+                width="60px"
+                src="./images/unsplash_tyv3bhizAx8.png"
+                alt=""
+              />
+            </div>
+            <div class="content">
+              <div class="details">
+                <p class="name">Jonas Merwin</p>
+                <p class="designat">Co-Owner</p>
+              </div>
+              <p>
+                Aut nihil mollitia deserunt quia sed rem. Quibusdam amet veniam
+                rerum id rerum beatae. Quas rerum iste necessitatibus. At
+                voluptates ad magnam blanditiis excepturi expedita aut. Aut
+                repellat inventore qui minima illum est.
+              </p>
+            </div>
+            <button class="button">Know More</button>
+          </div>
+          <div data-active class="slide">
+            <div class="image">
+              <img
+                width="60px"
+                src="./images/unsplash_tyv3bhizAx8.png"
+                alt=""
+              />
+            </div>
+            <div class="content">
+              <div class="details">
+                <p class="name">Jonas Merwin</p>
+                <p class="designat">Co-Owner</p>
+              </div>
+              <p>
+                Aut nihil mollitia deserunt quia sed rem. Quibusdam amet veniam
+                rerum id rerum beatae. Quas rerum iste necessitatibus. At
+                voluptates ad magnam blanditiis excepturi expedita aut. Aut
+                repellat inventore qui minima illum est.
+              </p>
+            </div>
+            <button class="button">Know More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+          loop: true,
+          margin: 10,
+          nav: true,
+          center: true,
+
+          responsive: {
+            0: {
+              items: 1,
+            },
+            600: {
+              items: 2,
+              stagePadding: 0,
+            },
+            1000: {
+              items: 3,
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

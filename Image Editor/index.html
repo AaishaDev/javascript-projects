@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Filter</title>
+
+    <style>
+
+
+@media screen and (max-width: 700px) {
+    html{
+        font-size: 8px;
+    }
+    .container{
+        margin: 10px !important;
+    }
+   
+    
+}
+@media screen and (max-width: 400px){
+    button{
+        font-size: 1.2rem;
+    }
+
+    .container{
+        padding: 3rem !important;
+    }
+    .filterName{
+        color: #0B2D3A;
+        margin: 1rem 0;
+        font-size: 3rem !important;
+      }
+}
+      body {
+        box-sizing: border-box;
+        /* height: 100vh; */
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+          175.6deg,
+          #a5c8d0 4.24%,
+          #807ec9 57.85%,
+          #a5c8d0 99.3%
+        );
+        background-repeat: no-repeat;
+      }
+      h1 {
+        text-align: center;
+        color: rgb(243, 240, 240);
+        font-weight: 600;
+      }
+      .container {
+        box-sizing: border-box;
+        max-width: 700px;
+        margin: auto;
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        border: 0.5px solid #888585;
+        box-shadow: 0px 4px 200px rgba(0, 0, 0, 0.25);
+        border-radius: 11px;
+        background-color: white;
+        margin-top: 5rem;
+      }
+      .imgBtn {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+      }
+      .uploadImg {
+        border: 0.5px solid #176e8f;
+        border-radius: 4px;
+        padding: 1rem 2rem;
+        background-color: white;
+      }
+      .saveImg {
+        color: white;
+        border-radius: 4px;
+        padding: 1rem 2rem;
+        background-color: #176e8f;
+        border: none;
+      }
+      .imgView{
+        /* max-width: 500px; */
+        border: 1px solid grey;
+        /* height: 420px; */
+        border-radius: 4px;
+      }
+    
+      .filters{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .filters button{
+        border: 0.5px solid #176e8f;
+        border-radius: 4px;
+        padding: 1rem 2rem;
+        background-color: white;
+        cursor: pointer;
+
+      }
+      .filters button:hover{
+        background-color: #f7f9fa;
+        /* color: white; */
+
+      }
+      .active{
+        background-color: #176e8f !important;
+        color: white;
+      }
+      .filterName{
+        color: #0B2D3A;
+        margin: 1rem 0;
+        font-size: 2rem;
+      }
+      .range{
+        width: 100%;
+        font-size: 24px;
+
+
+        
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Image Editor</h1>
+    <div class="container">
+      <div class="imgBtn">
+        <input type="file" hidden class="inputImage" />
+        <button class="uploadImg">Upload Image</button>
+        <button class="saveImg">Save Image</button>
+      </div>
+      <img src="./girl img.png" class="imgView"></img>
+      <div class="filters">
+        <button id="grayscale">Grayscale</button>
+        <button id="brightness">Brightness</button>
+        <button id="contrast">Contrast</button>
+        <button id="saturat">Saturate</button>
+      </div>
+      <div class="controlFilter" hidden>
+        <div class="filterName">Blur</div>
+        <input class="range" type="range" min="0" max="200" value="100" />
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
