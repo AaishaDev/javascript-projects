@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script.js"></script>
+    <title>Spin and Win Money</title>
+</head>
+<style>
+    body{
+        background: url('./images/baloon.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .box{
+        padding: 2rem;
+    }
+    .spinner_container{
+        max-width: 300px;
+        margin: 3rem auto;
+        position: relative;
+    }
+    .spinner_border{
+        width: 100%;
+    }
+    .spinner_border img{
+        width: 100%;
+    }
+    .spinner{
+       
+        position: absolute;
+    width: 95%;
+    top: 0.49rem;
+    left: 0.45rem;
+    z-index: -10;
+    }
+    .spinner img{
+        width: 100%;
+    }
+    .spin_button_circle{
+       
+        max-width: 28%;
+    position: absolute;
+    top: 29%;
+    right: 36%;
+    animation: blink 1s linear 0s infinite;
+    }
+    .spin_button_circle img{
+        width: 100%;
+        cursor: pointer;
+    }
+    @keyframes blink {
+  50% {
+    transform: scale(0.95);
+  }}
+  .popup{
+    transition: all 1s ease-out ;
+    max-width: 250px;
+    display: none;
+    margin: auto;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    width: 12rem;
+    background: white;
+    border-radius: 4px;
+    color: red;
+    position: absolute;
+    top: 3rem 1rem;
+    top: 3rem;
+    left: 3.4rem;
+    animation: fade 1s linear 0s forwards;
+  }
+  @keyframes fade {
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1);
+    }
+
+  }
+  .popup p{
+    padding: 4rem 0;
+    text-align: center;
+    font-weight: bold;
+  }
+</style>
+<body>
+    
+   
+   <div class="box">
+    <div class="spinner_container">
+        <div class="spinner_border">
+            <img src="./images/outer.png" alt="">
+        </div>
+        <div class="spinner" data-spinner>
+            <img src="./images/spinner.png" alt="">
+        </div>
+        <div class="spin_button_circle" data-spin>
+            <img src="./images/spinbtn.png" alt="">
+        </div>
+        <div class="popup" data-popup >
+            <p>Congratulations!! <br> You won $<span data-rs>999</span> </p>
+           
+        </div>
+    </div>
+   </div>
+   
+
+    <script>
+        const spinButton= document.querySelectorAll('[data-spin]');
+        const spinner = document.querySelector('[data-spinner]');
+        const popupDisplay = document.querySelector('[data-popup]');
+        const rupees = document.querySelector('[data-rs]')
+        console.log(rupees)
+        let popUp="";
+       
+        
+
+
+        const buttonclicked=()=>{
+           
+            value= Math.ceil(Math.random()*8);
+            spinButton[0].style.animation="none";
+            console.log("btn click",value)
+
+            
+            
+
+            switch (value) {
+            case 1:
+            spinner.style.transition="all 4s ease-in-out;";
+            spinner.style.transform="rotate(3620deg)";
+            popUp="199";
+            rupees.innerHTML=popUp;
+            
+                break;
+            case 2:
+            spinner.style.transition="all 4s ease-in-out";
+            spinner.style.transform="rotate(3665deg)";
+            popUp="1699"
+            rupees.innerHTML=popUp;
+            
+
+                break;
+            case 3:
+            spinner.style.transition="all 4s ease-in-out";
+            spinner.style.transform="rotate(3705deg)";
+            popUp="6999rs"
+            rupees.innerHTML=popUp;
+            
+                break;
+            case 4:
+            spinner.style.transition="all 4s ease-in-out";
+            spinner.style.transform="rotate(3755deg)";
+            popUp="100";
+            rupees.innerHTML=popUp;
+            
+
+                break;
+            case 5:
+            spinner.style.transition="all 4s ease-in-out";
+            spinner.style.transform="rotate(3800deg)";
+            popUp="650";
+            rupees.innerHTML=popUp;
+                break;
+        
+            case 6:
+            spinner.style.transition="all 4s ease-in-out";
+            spinner.style.transform="rotate(3845deg)";
+            popUp="0";
+            rupees.innerHTML=popUp;
+                break;
+        
+            case 7:
+            spinner.style.transition="all 4s ease-in-out";
+            spinner.style.transform="rotate(3890deg)";
+            popUp="500";
+            rupees.innerHTML=popUp;
+                break;
+        
+            case 8:
+            spinner.style.transition="all 4s ease-in-out";
+            spinner.style.transform="rotate(3935deg)";
+            popUp="1499rs";
+            rupees.innerHTML=popUp;
+                break;
+        
+            default:
+                break;
+        }
+
+        setTimeout(()=>{
+            spinButton[0].style.animation=" blink 1s linear 0s infinite"
+
+            popupDisplay.style.display='block';
+            
+            setTimeout(() => {
+                spinner.style.transform="none";
+            spinner.style.transition="none";
+            }, 2000);
+            setTimeout(() => {
+                popupDisplay.style.display='none';
+                
+            }, 2000);
+
+        },5000)
+
+        }
+        
+        spinButton.forEach(button => {
+            button.onclick=buttonclicked;
+            
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Weather App</title>
+  </head>
+
+  <style>
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .container {
+      max-width: 390px;
+      border-radius: 8px;
+      margin: 3rem auto;
+      background: url("./images/background.png");
+      background-size: cover;
+      height: 700px;
+      padding: 3rem;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      color: white;
+    }
+    .container > div:nth-child(1) {
+      width: 100%;
+      background: white;
+      padding: 0.7rem;
+      border-radius: 4px;
+      color: black;
+      display: flex;
+      justify-content: space-between;
+    }
+    input {
+      border: none;
+      outline: none;
+    }
+    [data-date] {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      /* identical to box height */
+
+      text-align: center;
+
+      color: #ffffff;
+    }
+    [data-city] {
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 44px;
+      /* identical to box height */
+
+      text-align: center;
+
+      color: #ffffff;
+
+      text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    .circle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      background: white;
+      color: #1c064f;
+      background: #FFFFFF;
+      box-shadow: 0px 28px 36px rgba(96, 209, 234, 0.4), inset -4px 6px 4px rgba(0, 0, 0, 0.25), inset 6px -4px 4px rgba(0, 0, 0, 0.25);
+      width: 200px;
+      height: 200px;
+      padding: 1rem;
+      border-radius: 100px;
+    }
+    [data-deg] {
+      font-weight: 500;
+      font-size: 42px;
+      position: relative;
+      top: -1rem;
+    }
+    [data-like] {
+      position: relative;
+      top: -1rem;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .low {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .lower {
+      display: flex;
+      gap: 5rem;
+      text-align: center;
+    }
+    .lower p:nth-child(1) {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 22px;
+    }
+    .lower p:nth-child(2) {
+      font-size: 20px;
+    }
+    [data-icon] {
+      width: 80px;
+    }
+    [data-icon] img {
+      width: 80px;
+    }
+    @media screen and (max-width: 360px){
+        .container{
+            margin: 2rem 1rem;
+            padding: 1.5rem;
+        }
+        .lower p:nth-child(1){
+            font-size: 13px !important;
+        }
+        .lower p:nth-child(2){
+            font-size: 13px !important;
+           
+        }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div>
+        <input type="text" placeholder="Search city" />
+        <!-- font awesome icon -->
+        <i data-search class="fa fa-search" aria-hidden="true"></i>
+      </div>
+      <div>
+        <div data-date>Today, May 7th, 2022</div>
+        <div data-city>Delhi</div>
+      </div>
+      <div class="circle">
+        <div>
+          <img
+            data-icon
+            src="https://openweathermap.org/img/w/10d.png"
+            alt=""
+          />
+        </div>
+        <div data-deg>20&deg;C</div>
+        <div data-like>Feels like 36&deg;C</div>
+      </div>
+      <div class="low">
+        <div class="lower">
+          <div>
+            <p>Wind Status</p>
+            <p data-wind>7 mph</p>
+          </div>
+          <div>
+            <p>Visibility</p>
+            <p data-visibility>6.4 miles</p>
+          </div>
+        </div>
+        <div class="lower">
+          <div>
+            <p>Humidity</p>
+            <p data-humidity>7 mph</p>
+          </div>
+          <div>
+            <p>Air-Pressure</p>
+            <p data-pressure>6.4 miles</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const DomObject = {
+      date: document.querySelector("[data-date]"),
+      input: document.querySelector("input"),
+      city: document.querySelector("[data-city]"),
+      icon: document.querySelector("[data-icon]"),
+      deg: document.querySelector("[data-deg]"),
+      feelsLike: document.querySelector("[data-like]"),
+      wind: document.querySelector("[data-wind]"),
+      visibility: document.querySelector("[data-visibility]"),
+      humidity: document.querySelector("[data-humidity]"),
+      airPressure: document.querySelector("[data-pressure]"),
+      search: document.querySelector("[data-search]"),
+      
+    };
+    let city = "Patna";
+
+    let currentDate = new Date();
+    let cDay = currentDate.getDate();
+    let cMonth = currentDate.toLocaleString("default", { month: "long" });
+    let cYear = currentDate.getFullYear();
+    DomObject.date.innerHTML = `Today, ${cMonth} ${cDay}th, ${cYear}`;
+    
+    DomObject.input.onkeypress = (e) => {
+      if (e.key === "Enter") {
+        city = DomObject.input.value;
+        // console.log(city)
+        DomObject.input.value=""
+        weather();
+      }
+    };
+    DomObject.search.onclick = (e) => {
+      
+        city = DomObject.input.value;
+        // console.log(city)
+        DomObject.input.value=""
+        weather();
+      
+    };
+
+    const API = "cd32d94e3a252208791e5ea21baec7b9";
+
+    let apiData = {};
+    const weather = async () => {
+      const details = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&units=metric`
+      );
+
+      const data = await details.json();
+
+      //  console.log(Math.floor(data.main.temp))
+
+      DomObject.deg.innerHTML = `${Math.floor(data.main.temp)}&deg;C`;
+      DomObject.city.innerHTML = `${city}`;
+      DomObject.icon.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+      DomObject.visibility.innerHTML = `${(
+        parseInt(data.visibility) / 1609
+      ).toFixed(2)} km`;
+      DomObject.wind.innerHTML = `${Math.round(data.wind.speed)} mph`;
+      DomObject.humidity.innerHTML = `${Math.round(data.main.humidity)} %`;
+      DomObject.airPressure.innerHTML = `${Math.round(data.main.pressure)} mb`;
+      DomObject.feelsLike.innerHTML = `Feels like ${Math.round(
+        data.main.feels_like
+      )}&deg;C`;
+    };
+    weather();
+  </script>
+</html>
